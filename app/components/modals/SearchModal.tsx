@@ -37,7 +37,7 @@ const SearchModal = () => {
 
   const Map = useMemo(() => dynamic(() => import('../Map'), {
     ssr: false,
-  }), [location]);
+  }), []);
 
   const onBack = useCallback(() => {
     setStep((value) => value - 1);
@@ -95,6 +95,8 @@ const SearchModal = () => {
     dateRange,
     onNext,
     params,
+    STEPS.INFO,
+    STEPS.LOCATION
   ]);
 
   const actionLabel = useMemo(() => {
@@ -103,7 +105,7 @@ const SearchModal = () => {
     }
 
     return 'Next';
-  }, [step]);
+  }, [step, STEPS.INFO]);
 
   const secondaryActionLabel = useMemo(() => {
     if (step === STEPS.LOCATION) {
@@ -111,7 +113,7 @@ const SearchModal = () => {
     }
 
     return 'Back';
-  }, [step]);
+  }, [step, STEPS.LOCATION]);
 
   let bodyContent = (
     <div className='flex flex-col gap-8'>

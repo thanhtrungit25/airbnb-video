@@ -35,7 +35,7 @@ const ReservationClient: React.FC<IReservationClient> = ({
       .finally(() => {
         setDeletingId('');
       })
-  }, [])
+  }, [router])
 
   return (
     <Container>
